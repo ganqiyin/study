@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title> 
+    <environment include="Development">
+        <!--开发环境-->
+        <link href="~/lib/view-design/dist/styles/iview.css" rel="stylesheet"  type="text/css"/>
+    </environment>
+    <environment exclude="Development">
+        <!--正式环境-->
+        <link rel="stylesheet" href="http://unpkg.com/view-design/dist/styles/iview.css"
+              asp-fallback-href="~/lib/view-design/dist/styles/iview.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"  type="text/css">
+    </environment>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <environment include="Development">
+        <!--开发环境-->
+    </environment>
+    <environment exclude="Development">
+        <!--正式环境-->
+    </environment>
+</body>
+</html>
