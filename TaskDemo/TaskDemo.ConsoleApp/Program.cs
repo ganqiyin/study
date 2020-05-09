@@ -16,7 +16,13 @@ namespace TaskDemo.ConsoleApp
 
             //chapter1.Print.NewThreadWithCheck();
 
-            chapter1.Print.NewThreadWithPriority();
+            //chapter1.Print.NewThreadWithPriority();
+
+            //chapter1.Print.BackgorundThread();
+
+            //chapter1.Print.ThreadWithLock();
+
+            chapter1.Print.DeadLock();
             //
             Console.Read();
         }

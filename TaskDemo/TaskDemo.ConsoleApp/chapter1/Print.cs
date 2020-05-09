@@ -9,6 +9,92 @@ namespace TaskDemo.ConsoleApp.chapter1
     public static class Print
     {
         /// <summary>
+        /// 死锁
+        /// </summary>
+        public static void DeadLock()
+        { 
+            var lock1= new object();
+            var lock2 = new object();
+            new Thread(() => MonitorSample.LockTooMuch(lock1, lock2)).Start();
+            lock(lock2)
+            {
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                Console.WriteLine("Monitor.TryEnter不允许卡住，经过指定的超时后返回false");
+                if (Monitor.TryEnter(lock1, TimeSpan.FromSeconds(5)))
+                {
+                    Console.WriteLine("成功获取受保护资源");
+                }
+                else
+                {
+                    Console.WriteLine("资源获取超时");
+                }
+            }
+            new Thread(() => MonitorSample.LockTooMuch(lock1, lock2)).Start();
+            Console.WriteLine("-----------------------------------------------------");
+            lock (lock2)
+            { 
+                Console.WriteLine("这是一个死锁");
+                Thread.Sleep(TimeSpan.FromSeconds(1));
+                lock (lock1)
+                {
+                    Console.WriteLine("成功获取受保护资源2");
+                }
+            }
+        }
+
+        /// <summary>
+        /// 线程与锁
+        /// </summary>
+        public static void ThreadWithLock()
+        {
+            Console.WriteLine("线程计数器");
+            var c = new Counter();
+            var t1 = new Thread(() => LockSample.TestCounter(c));
+            var t2 = new Thread(() => LockSample.TestCounter(c));
+            var t3 = new Thread(() => LockSample.TestCounter(c));
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t1.Join();
+            t2.Join();
+            t3.Join();
+            //
+            Console.WriteLine($"总数:{c.Count}");
+            Console.WriteLine("-------------------------------------------");
+            var c1 = new CounterWithLock();
+            t1 = new Thread(() => LockSample.TestCounter(c1));
+            t2 = new Thread(() => LockSample.TestCounter(c1));
+            t3 = new Thread(() => LockSample.TestCounter(c1));
+            t1.Start();
+            t2.Start();
+            t3.Start();
+            t1.Join();
+            t2.Join();
+            t3.Join();
+            Console.WriteLine($"总数:{c1.Count}");
+        }
+
+        /// <summary>
+        /// 后台线程和前台线程
+        /// </summary>
+        public static void BackgorundThread()
+        {
+            var foreGround = new ThreadSample2(40);
+            var backGround = new ThreadSample2(20);
+            var t = new Thread(foreGround.CountNumber)
+            {
+                Name = "Foreground Thread"
+            };
+            var t2 = new Thread(backGround.CountNumber)
+            {
+                Name = "Background Thread",
+                IsBackground = true
+            };
+            t.Start();
+            t2.Start();
+        }
+
+        /// <summary>
         /// 创建线程
         /// </summary>
         public static void NewThread()
@@ -102,7 +188,7 @@ namespace TaskDemo.ConsoleApp.chapter1
             };
             var thread2 = new Thread(sample.CountNumbers)
             {
-                Name = "线程2", 
+                Name = "线程2",
                 Priority = ThreadPriority.Lowest
             };
             thread1.Start();
@@ -120,7 +206,7 @@ namespace TaskDemo.ConsoleApp.chapter1
         private static void PrintNumbersWithStatus()
         {
             var threadId = Thread.CurrentThread.ManagedThreadId;
-            Console.WriteLine($"PrintNumbersWithStatus 线程{threadId}启动中..."); 
+            Console.WriteLine($"PrintNumbersWithStatus 线程{threadId}启动中...");
             Console.WriteLine($" 线程{threadId}的状态是{Thread.CurrentThread.ThreadState.ToString()}");
             for (var i = 1; i < 10; i++)
             {
