@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Autofac;
+using IoC.Domain;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,33 +38,33 @@ namespace IoC.Web
             //     .AsSelf();
             //
 
-            //builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
-            //    .Where(x => x.BaseType.FullName.Contains("ScopedDenpency"))
-            //    .AsSelf()
-            //    .AsImplementedInterfaces()
-            //    .InstancePerLifetimeScope()
-            //    .PropertiesAutowired();
-
-            //builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
-            //  .Where(x => x.BaseType.FullName.Contains("SingletonDenpency"))
-            //  .AsSelf()
-            //  .AsImplementedInterfaces()
-            //  .SingleInstance()
-            //  .PropertiesAutowired();
-
-
-            //builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
-            //  .Where(x => x.BaseType.FullName.Contains("TraintDenpency"))
-            //  .AsSelf()
-            //  .AsImplementedInterfaces()
-            //  .InstancePerDependency()
-            //  .PropertiesAutowired();
+            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+                 .Where(x => typeof(IScopedDenpency).IsAssignableFrom(x) && !x.IsAbstract)
+                .AsSelf()
+                .AsImplementedInterfaces()
+                .InstancePerLifetimeScope()
+                .PropertiesAutowired();
 
             builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+            .Where(x => typeof(ISingletonDenpency).IsAssignableFrom(x) && !x.IsAbstract)
               .AsSelf()
               .AsImplementedInterfaces()
-              .InstancePerLifetimeScope()
+              .SingleInstance()
               .PropertiesAutowired();
+
+
+            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+              .Where(x => typeof(ITraintDenpency).IsAssignableFrom(x) && !x.IsAbstract)
+              .AsSelf()
+              .AsImplementedInterfaces()
+              .InstancePerDependency()
+              .PropertiesAutowired();
+
+            //builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+            //  .AsSelf()
+            //  .AsImplementedInterfaces()
+            //  .InstancePerLifetimeScope()
+            //  .PropertiesAutowired();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
