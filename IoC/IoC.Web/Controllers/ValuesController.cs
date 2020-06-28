@@ -16,7 +16,9 @@ namespace IoC.Web.Controllers
         private readonly IBackgroundService _backgroundService;
         private readonly ITService _tService;
         private readonly IUserAppService _userAppService;
-        public ValuesController(IBackgroundService backgroundService, ITService tService, IUserAppService userAppService)
+        public ValuesController(IBackgroundService backgroundService, 
+            ITService tService, 
+            IUserAppService userAppService)
         {
             _backgroundService = backgroundService;
             _tService = tService;
