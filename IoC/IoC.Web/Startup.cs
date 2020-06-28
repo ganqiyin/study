@@ -38,14 +38,16 @@ namespace IoC.Web
             //     .AsSelf();
             //
 
-            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"),
+                Assembly.Load("IoC.Domain"))
                  .Where(x => typeof(IScopedDenpency).IsAssignableFrom(x) && !x.IsAbstract)
                 .AsSelf()
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope()
                 .PropertiesAutowired();
 
-            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"),
+                Assembly.Load("IoC.Domain"))
             .Where(x => typeof(ISingletonDenpency).IsAssignableFrom(x) && !x.IsAbstract)
               .AsSelf()
               .AsImplementedInterfaces()
@@ -53,7 +55,8 @@ namespace IoC.Web
               .PropertiesAutowired();
 
 
-            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"), Assembly.Load("IoC.Domain"))
+            builder.RegisterAssemblyTypes(Assembly.Load("IoC.Application"),
+                Assembly.Load("IoC.Domain"))
               .Where(x => typeof(ITraintDenpency).IsAssignableFrom(x) && !x.IsAbstract)
               .AsSelf()
               .AsImplementedInterfaces()
