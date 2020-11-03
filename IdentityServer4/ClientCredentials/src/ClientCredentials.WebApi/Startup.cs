@@ -28,8 +28,9 @@ namespace ClientCredentials.WebApi
         {
             //
             services.AddControllers();
-            //
+            //将身份认证服务添加到DI，并将“Bearer”配置为默认方案。
             services.AddAuthentication("Bearer")
+                                                //将 JWT 认证处理程序添加到DI中以供身份认证服务使用
             .AddJwtBearer("Bearer", options =>
             {
                 options.Authority = "https://localhost:5001";
@@ -38,6 +39,15 @@ namespace ClientCredentials.WebApi
                 {
                     ValidateAudience = false
                 };
+            });
+            //添加允许检查客户端请求（并被授予）访问令牌中是否存在作用域的代码
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ApiScope", policy =>
+                {
+                    policy.RequireAuthenticatedUser();
+                    policy.RequireClaim("scope", "api1");
+                });
             });
         }
 
@@ -53,13 +63,14 @@ namespace ClientCredentials.WebApi
 
             app.UseRouting();
 
-            //
+            //将身份认证中间件添加到管道中，因此将在每次调用API时自动执行身份验证。
             app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers()
+                         .RequireAuthorization("ApiScope"); //为路由系统中的所有API端点设置策略：
             });
         }
     }
