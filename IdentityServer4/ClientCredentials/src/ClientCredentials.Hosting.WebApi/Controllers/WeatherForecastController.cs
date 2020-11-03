@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace ClientCredentials.WebApi.Controllers
+namespace ClientCredentials.Hosting.WebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]

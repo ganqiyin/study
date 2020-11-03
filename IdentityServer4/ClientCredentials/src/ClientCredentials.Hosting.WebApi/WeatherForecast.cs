@@ -1,6 +1,6 @@
 using System;
 
-namespace ClientCredentials.WebApi
+namespace ClientCredentials.Hosting.WebApi
 {
     public class WeatherForecast
     {
