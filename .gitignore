@@ -23,3 +23,5 @@ bld/
 [Ll]og/
 /.vs
 IdentityServer4/ClientCredentials/.vs
+IdentityServer4/UserPassword/.vs
+
