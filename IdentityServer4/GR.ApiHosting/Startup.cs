@@ -1,15 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -17,7 +10,7 @@ namespace GR.ApiHosting
 {
     public class Startup
     {
-        //readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public Startup(IConfiguration configuration)
         {
@@ -29,17 +22,17 @@ namespace GR.ApiHosting
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddCors(options =>
-            //{
-            //    options.AddPolicy(name: MyAllowSpecificOrigins,
-            //                      builder =>
-            //                      {
-            //                          builder.WithOrigins("https://localhost:7001",
-            //                                              "https://localhost:7000")
-            //                                 .AllowAnyHeader()
-            //                                 .AllowAnyMethod();
-            //                      });
-            //});
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: MyAllowSpecificOrigins,
+                                  builder =>
+                                  {
+                                      builder.WithOrigins("https://localhost:5011",
+                                                          "http://localhost:5010")
+                                             .AllowAnyHeader()
+                                             .AllowAnyMethod();
+                                  });
+            });
             //
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -84,7 +77,7 @@ namespace GR.ApiHosting
 
             app.UseRouting();
             //
-            //app.UseCors(MyAllowSpecificOrigins);
+            app.UseCors(MyAllowSpecificOrigins);
             app.UseAuthentication();
             //
             app.UseAuthorization();

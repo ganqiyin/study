@@ -59,6 +59,24 @@ namespace GR.IdentityServer.Hosting
                         IdentityServerConstants.StandardScopes.Profile,
                          "api1"
                     }
+                },
+                new Client
+                {
+                    ClientId = "js",
+                    ClientName = "JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequireClientSecret = false,
+
+                    RedirectUris =           { "https://localhost:5011/callback.html" },
+                    PostLogoutRedirectUris = { "https://localhost:5011/index.html" },
+                    AllowedCorsOrigins =     { "https://localhost:5011" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    }
                 }
             };
     }
