@@ -40,6 +40,9 @@ namespace GR.Web
                 options.ResponseType = Configuration.GetValue<string>("Auth:ResponseType");
 
                 options.SaveTokens = true;
+
+                options.Scope.Add("api1");
+                options.Scope.Add("offline_access");
             });
         }
 
