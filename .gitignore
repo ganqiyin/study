@@ -21,7 +21,6 @@ bld/
 [Bb]in/
 [Oo]bj/
 [Ll]og/
-/.vs
-IdentityServer4/ClientCredentials/.vs
-IdentityServer4/UserPassword/.vs
+/.vs 
 
+IdentityServer4/.vs
