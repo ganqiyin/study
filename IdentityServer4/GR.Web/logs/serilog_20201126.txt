@@ -1,0 +1,73 @@
+2020-11-26 15:33:42 [INF] User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-11-26 15:33:42 [INF] Now listening on: https://localhost:7001
+2020-11-26 15:33:42 [INF] Now listening on: http://localhost:7000
+2020-11-26 15:33:42 [INF] Application started. Press Ctrl+C to shut down.
+2020-11-26 15:33:42 [INF] Hosting environment: Development
+2020-11-26 15:33:42 [INF] Content root path: F:\GithubRepository\study\IdentityServer4\GR.Web
+2020-11-26 15:33:44 [INF] Request starting HTTP/2 GET https://localhost:7001/ - -
+2020-11-26 15:33:44 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2020-11-26 15:33:45 [INF] AuthenticationScheme: oidc was challenged.
+2020-11-26 15:33:45 [INF] Request finished HTTP/2 GET https://localhost:7001/ - - - 302 0 - 815.4656ms
+2020-11-26 15:35:32 [INF] User profile is available. Using 'C:\Users\admin\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2020-11-26 15:35:33 [INF] Now listening on: https://localhost:7001
+2020-11-26 15:35:33 [INF] Now listening on: http://localhost:7000
+2020-11-26 15:35:33 [INF] Application started. Press Ctrl+C to shut down.
+2020-11-26 15:35:33 [INF] Hosting environment: Development
+2020-11-26 15:35:33 [INF] Content root path: F:\GithubRepository\study\IdentityServer4\GR.Web
+2020-11-26 15:35:34 [INF] Request starting HTTP/2 GET https://localhost:7001/ - -
+2020-11-26 15:35:34 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2020-11-26 15:35:35 [INF] AuthenticationScheme: oidc was challenged.
+2020-11-26 15:35:35 [INF] Request finished HTTP/2 GET https://localhost:7001/ - - - 302 0 - 801.0310ms
+2020-11-26 15:36:01 [INF] Request starting HTTP/2 POST https://localhost:7001/signin-oidc application/x-www-form-urlencoded 578
+2020-11-26 15:36:01 [INF] AuthenticationScheme: Cookies signed in.
+2020-11-26 15:36:01 [INF] Request finished HTTP/2 POST https://localhost:7001/signin-oidc application/x-www-form-urlencoded 578 - 302 0 - 320.5256ms
+2020-11-26 15:36:01 [INF] Request starting HTTP/2 GET https://localhost:7001/ - -
+2020-11-26 15:36:01 [INF] Authorization was successful.
+2020-11-26 15:36:01 [INF] Executing endpoint 'GR.Web.Controllers.HomeController.Index (GR.Web)'
+2020-11-26 15:36:01 [INF] Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller GR.Web.Controllers.HomeController (GR.Web).
+2020-11-26 15:36:01 [INF] Executing action method GR.Web.Controllers.HomeController.Index (GR.Web) - Validation state: "Valid"
+2020-11-26 15:36:05 [INF] Executed action method GR.Web.Controllers.HomeController.Index (GR.Web), returned result Microsoft.AspNetCore.Mvc.ViewResult in 3816.6698ms.
+2020-11-26 15:36:05 [INF] Executing ViewResult, running view Index.
+2020-11-26 15:36:05 [INF] Executed ViewResult - view Index executed in 103.2362ms.
+2020-11-26 15:36:05 [INF] Executed action GR.Web.Controllers.HomeController.Index (GR.Web) in 3984.7719ms
+2020-11-26 15:36:05 [INF] Executed endpoint 'GR.Web.Controllers.HomeController.Index (GR.Web)'
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/ - - - 200 - text/html;+charset=utf-8 4017.4708ms
+2020-11-26 15:36:05 [INF] Request starting HTTP/2 GET https://localhost:7001/css/site.css - -
+2020-11-26 15:36:05 [INF] Request starting HTTP/2 GET https://localhost:7001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - -
+2020-11-26 15:36:05 [INF] Request starting HTTP/2 GET https://localhost:7001/lib/jquery/dist/jquery.min.js - -
+2020-11-26 15:36:05 [INF] Request starting HTTP/2 GET https://localhost:7001/lib/bootstrap/dist/css/bootstrap.min.css - -
+2020-11-26 15:36:05 [INF] Request starting HTTP/2 GET https://localhost:7001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - -
+2020-11-26 15:36:05 [INF] The file /lib/jquery/dist/jquery.min.js was not modified
+2020-11-26 15:36:05 [INF] The file /css/site.css was not modified
+2020-11-26 15:36:05 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2020-11-26 15:36:05 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2020-11-26 15:36:05 [INF] The file /js/site.js was not modified
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/lib/jquery/dist/jquery.min.js - - - 304 - application/javascript 16.9819ms
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/css/site.css - - - 304 - text/css 18.6745ms
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/lib/bootstrap/dist/js/bootstrap.bundle.min.js - - - 304 - application/javascript 19.2467ms
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/lib/bootstrap/dist/css/bootstrap.min.css - - - 304 - text/css 28.6959ms
+2020-11-26 15:36:05 [INF] Request finished HTTP/2 GET https://localhost:7001/js/site.js?v=4q1jwFhaPaZgr8WAUSrux6hAuh0XDg9kPS3xIVq36I0 - - - 304 - application/javascript 28.3916ms
+2020-11-26 15:36:05 [INF] Request starting HTTP/1.1 GET https://localhost:7001/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - -
+2020-11-26 15:36:05 [INF] Sending file. Request path: '/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map'. Physical path: 'F:\GithubRepository\study\IdentityServer4\GR.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map'
+2020-11-26 15:36:05 [INF] Request finished HTTP/1.1 GET https://localhost:7001/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map - - - 200 311949 text/plain 23.1325ms
+2020-11-26 15:36:22 [INF] Request starting HTTP/2 GET https://localhost:7001/Home/Logout - -
+2020-11-26 15:36:22 [INF] Authorization was successful.
+2020-11-26 15:36:22 [INF] Executing endpoint 'GR.Web.Controllers.HomeController.Logout (GR.Web)'
+2020-11-26 15:36:22 [INF] Route matched with {action = "Logout", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Logout() on controller GR.Web.Controllers.HomeController (GR.Web).
+2020-11-26 15:36:22 [INF] Executing action method GR.Web.Controllers.HomeController.Logout (GR.Web) - Validation state: "Valid"
+2020-11-26 15:36:27 [INF] Executed action method GR.Web.Controllers.HomeController.Logout (GR.Web), returned result Microsoft.AspNetCore.Mvc.SignOutResult in 4721.3526ms.
+2020-11-26 15:36:27 [INF] Executing SignOutResult with authentication schemes (["Cookies","oidc"]).
+2020-11-26 15:36:27 [INF] AuthenticationScheme: Cookies signed out.
+2020-11-26 15:36:27 [INF] AuthenticationScheme: oidc signed out.
+2020-11-26 15:36:27 [INF] Executed action GR.Web.Controllers.HomeController.Logout (GR.Web) in 4795.8902ms
+2020-11-26 15:36:27 [INF] Executed endpoint 'GR.Web.Controllers.HomeController.Logout (GR.Web)'
+2020-11-26 15:36:27 [INF] Request finished HTTP/2 GET https://localhost:7001/Home/Logout - - - 302 0 - 4819.1245ms
+2020-11-26 15:36:35 [INF] Request starting HTTP/2 GET https://localhost:7001/signout-callback-oidc?state=CfDJ8HAXoJAooMFMjmbPeLhaAtprHRcVfdPkh_vyjPJpWIfRnPLF5HWVxtUbdIzxRyQ6rkmvM63h5fR0faeKjflTsW7KzNh2zF3WmROze_h7f_1g2yZEtUyhhU1zl9gRAkdf4rAfalQQjJ7rh80OW_yNSnTlXfm_eUjz5DefMkpQN9f_ - -
+2020-11-26 15:36:35 [INF] Request finished HTTP/2 GET https://localhost:7001/signout-callback-oidc?state=CfDJ8HAXoJAooMFMjmbPeLhaAtprHRcVfdPkh_vyjPJpWIfRnPLF5HWVxtUbdIzxRyQ6rkmvM63h5fR0faeKjflTsW7KzNh2zF3WmROze_h7f_1g2yZEtUyhhU1zl9gRAkdf4rAfalQQjJ7rh80OW_yNSnTlXfm_eUjz5DefMkpQN9f_ - - - 302 0 - 5.5331ms
+2020-11-26 15:36:35 [INF] Request starting HTTP/2 GET https://localhost:7001/ - -
+2020-11-26 15:36:35 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2020-11-26 15:36:35 [INF] AuthenticationScheme: oidc was challenged.
+2020-11-26 15:36:35 [INF] Request finished HTTP/2 GET https://localhost:7001/ - - - 302 0 - 8.2298ms
