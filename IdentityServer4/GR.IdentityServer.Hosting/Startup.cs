@@ -38,13 +38,13 @@ namespace GR.IdentityServer.Hosting
                 .AddDeveloperSigningCredential();
 #endif
             services.AddAuthentication()
-               //.AddGoogle("Google", options =>
-               //{
-               //    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+               .AddGoogle("Google", options =>
+               {
+                   options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
 
-               //    options.ClientId = "<insert here>";
-               //    options.ClientSecret = "<insert here>";
-               //})
+                   options.ClientId = "<insert here>";
+                   options.ClientSecret = "<insert here>";
+               })
                .AddOpenIdConnect("oidc", "Demo IdentityServer", options =>
                {
                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
